@@ -41,5 +41,13 @@ describe('Cadastro', () => {
         cy.get('#errorMessageFirstName').should('contain', 'O campo e-mail deve ser prenchido corretamente')
     })
 
+    it('Senha em branco', () => {
+        cy.visit('https://automationpratice.com.br/register')
+        cy.get('#user').type('guilherme')
+        cy.get('#email').type('gui@test.com')
+        cy.get('#btnRegister').click()
+        cy.get('#errorMessageFirstName').should('contain', 'O campo senha deve ter pelo menos 6 dígitos')    
+    })
+
 
 });
